@@ -1,0 +1,48 @@
+#general {
+  display: inline-block;
+  padding: 20px 30px;
+  position: fixed;
+  left: 50%;
+  border: 8px solid blue;
+  border-radius: 15px;
+}
+
+#screen {
+  border: 2px solid red;
+  width: 238px;
+  padding: 0px 10px;
+  font-size: 20px;
+  background-color: wheat;
+  margin-bottom: 20px;  
+}
+
+#numbers {
+  width: 198px;
+  display: inline-block;
+}
+
+#operations {
+  width: 1px;
+  display: inline-block;
+  padding: 0;
+}
+
+.display {
+  height: 24px
+}
+
+.a, .b, .c, .d, .e, .f, .g, .h, .i, .dot, .z, .equals, 
+.add, .substract, .multiply, .divide, 
+.root, .power, .clear, .delete {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  margin-right: 2.5px;
+  background-color: gainsboro;
+  border: none;
+  padding: 0;
+}
+
+body {
+  background-color: yellowgreen
+}
