@@ -30,6 +30,8 @@ clear.addEventListener('click', () => display.textContent = '')
 let del = document.querySelector('.delete');
 del.addEventListener('click', () => {
 	let last = display.textContent[display.textContent.length - 1];
+
+	if (display.textContent == 'Math Error') {display.textContent = ''}
 	
 	if (display.textContent.length < 1) {display.textContent = ''}
 	else if (last == ' ') {
@@ -91,8 +93,28 @@ divide.addEventListener('click', () => {
 	if (display.textContent.length > 0) {
 		let last = display.textContent[display.textContent.length - 1]
 		if (last != ' ' && last != '-') {
-		display.textContent += ' / '}
+		display.textContent += ' ÷ '}
 	}
+})
+
+let power = document.querySelector('.power');
+power.addEventListener('click', () => {
+	if (display.textContent.length > 0) {
+		let last = display.textContent[display.textContent.length - 1]
+		if (last != ' ' && last != '-') {
+		display.textContent += ' ^ '}
+	}
+})
+
+let root = document.querySelector('.root');
+root.addEventListener('click', () => {
+	let last = display.textContent[display.textContent.length - 1];
+	let preLast = display.textContent[display.textContent.length - 2];
+
+	if (last == ' ' && preLast != '√' || last == '-' || 
+		display.textContent.length == 0) {
+		display.textContent += '√ '
+	} 
 })
 
 let dot = document.querySelector('.dot');
@@ -137,10 +159,26 @@ function multiplication(array) {
 }
 
 function division(array) {
-	for (let i = array.indexOf('/'); i > 0; i = array.indexOf('/')) {
+	for (let i = array.indexOf('÷'); i > 0; i = array.indexOf('÷')) {
 	array.splice(i - 1, 3, (array[i - 1] / array[i + 1]));
 	}
 }
+
+function powerOf(array) {
+	for (let i = array.indexOf('^'); i > 0; i = array.indexOf('^')) {
+		array.splice(i - 1, 3, (array[i - 1] ** array[i + 1]));
+	}
+}
+
+function rootOf(array) {
+	for (let i = array.indexOf('√'); i >= 0; i = array.indexOf('√')) {
+		{array.splice(i, 2, ((array[i + 1] ** (1 / 2) * 1)));}
+	}
+	for (let i = array.indexOf('-√'); i >= 0; i = array.indexOf('-√')) {
+		array.splice(i, 2, ((array[i + 1] ** (1 / 2) * -1)));
+	}
+}
+
 function operate(a) {
 	
 	let array = a.split(' ');
@@ -150,15 +188,18 @@ function operate(a) {
 	}
 
 	else {	
+		rootOf(array);
+		powerOf(array);
 		multiplication(array);
 		division(array);
 		addition(array);
 		subtraction(array); 
-		}
 
-	display.textContent = array[0];
-	return array[0];
-	
+		display.textContent = array[0];
+
+		if (array[0] == Infinity || display.textContent == 'NaN') {
+			display.textContent = 'Math Error'}
+	}	
 }
 
 console.log(events())

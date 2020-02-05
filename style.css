@@ -2,18 +2,25 @@
   display: inline-block;
   padding: 20px 30px;
   position: fixed;
+  width: 266px;
   left: 50%;
-  border: 8px solid blue;
-  border-radius: 15px;
+  margin-left: -163px;
+  margin-top: 110px;
+  border-radius: 28px;
+  box-shadow: 0 0 20px black;
+  background-color: #4194c4
 }
 
 #screen {
-  border: 2px solid red;
-  width: 238px;
+  border: 2px solid darkslateblue;
+  width: 242px;
   padding: 0px 10px;
   font-size: 20px;
-  background-color: wheat;
-  margin-bottom: 20px;  
+  background-color: #a2d6de;
+  margin-bottom: 25px;
+  margin-top: 8px;
+  border-radius: 10px;
+  box-shadow: 0 0 4px black
 }
 
 #numbers {
@@ -22,7 +29,7 @@
 }
 
 #operations {
-  width: 1px;
+  width: 60px;
   display: inline-block;
   padding: 0;
 }
@@ -35,14 +42,49 @@
 .add, .substract, .multiply, .divide, 
 .root, .power, .clear, .delete {
   width: 60px;
-  height: 60px;
+  height: 48px;
   margin-bottom: 10px;
-  margin-right: 2.5px;
-  background-color: gainsboro;
+  margin-right: 2.6px;
+  background-color: #4d1db3;
+  color: white;
   border: none;
   padding: 0;
+  box-shadow: 0 0 3px black;
+  border-radius: 14px;
+  font-size: 16px;
+}
+
+.a, .b, .c, .d, .e, .f, .g, .h, .i, .z {
+  background-color: #bfd3e0;
+  color: darkslategrey
+}
+
+.divide, .substract {
+  font-size: 21px
+}
+
+.delete, .clear {
+  background-color: #ff7e0d;
+}
+
+.dot, .equals {
+  background-color: #6ebdeb;
+  color: darkslategrey   
 }
 
 body {
-  background-color: yellowgreen
+  background-color: lightsteelblue
+}
+
+header {
+  font-size: 40px;
+  text-align: center;
+  text-shadow: -2px 2px cyan;
+}
+
+footer {
+  font-size: 13px;
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
 }
