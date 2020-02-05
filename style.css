@@ -23,12 +23,12 @@
   box-shadow: 0 0 4px black
 }
 
-#numbers {
+#numpad {
   width: 198px;
   display: inline-block;
 }
 
-#operations {
+#operators {
   width: 60px;
   display: inline-block;
   padding: 0;
